@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ChartsModel = DevExpress.Charts.Model;
-using DevExpress.XtraCharts.ModelSupport;
 using DevExpress.Utils;
 
 namespace ChartExModelSpike {
