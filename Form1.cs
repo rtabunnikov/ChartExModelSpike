@@ -26,10 +26,7 @@ namespace ChartExModelSpike {
         private void View_Paint(object sender, PaintEventArgs e) {
             if(modelChart != null) {
                 var graphics = e.Graphics;
-                ChartsModel.ModelRect rect = new ChartsModel.ModelRect(8,
-                                                                       8,
-                                                                       viewPanel.ClientSize.Width - 16,
-                                                                       viewPanel.ClientSize.Height - 16);
+                ChartsModel.ModelRect rect = new ChartsModel.ModelRect(8, 8, viewPanel.ClientSize.Width - 16, viewPanel.ClientSize.Height - 16);
                 var renderContext = factory.CreateRenderContext(rect, graphics);
                 controller.RenderChart(renderContext);
             }
@@ -92,7 +89,6 @@ namespace ChartExModelSpike {
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-
             series.DataSource = WaterfallData.GetSampleData();
 
             series.Label = new ChartsModel.SeriesLabel(series) {
