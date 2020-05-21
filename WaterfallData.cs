@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace ChartExModelSpike {
 
         public string Name { get; private set; }
         public double Amount { get; private set; }
+        public int PointColor => (int)(Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public bool IsTotal { get; set; }
 
         public static List<WaterfallData> GetSampleData() {
             List<WaterfallData> data = new List<WaterfallData>();
