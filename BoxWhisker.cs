@@ -92,6 +92,7 @@ namespace ChartExModelSpike {
                     meanLine.DataSource = BoxWhiskerData.GetSampleData(i);
                     meanLine.LabelsVisibility = false;
                     meanLine.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0xcb, 0x5c, 0x20) };
+                    meanLine.Appearance.LineStyle = new ChartsModel.LineStyle() { Thickness = 1, DashStyle = ChartsModel.DashStyle.Solid };
                     chart.Series.Add(meanLine);
                 }
             }
