@@ -13,7 +13,7 @@ using DevExpress.Charts.Model;
 namespace ChartExModelSpike {
     public partial class Form1 : Form {
         private readonly XtraChartsModelControllerFactory factory;
-        private readonly ChartsModel.Controller controller = null;
+        private ChartsModel.Controller controller = null;
         private ChartsModel.Chart modelChart = null;
 
         public Form1() {
@@ -44,6 +44,7 @@ namespace ChartExModelSpike {
             if(modelChart != null) {
                 modelChart = null;
                 controller.ChartModel = null;
+                controller = factory.CreateController();
             }
         }
 
