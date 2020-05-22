@@ -26,11 +26,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.butWaterfall = new System.Windows.Forms.Button();
             this.viewPanel = new System.Windows.Forms.Panel();
+            this.butBoxWhisker = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butBoxWhisker);
             this.panel1.Controls.Add(this.butWaterfall);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 404);
@@ -59,6 +61,16 @@
             this.viewPanel.SizeChanged += new System.EventHandler(this.View_SizeChanged);
             this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
             // 
+            // butBoxWhisker
+            // 
+            this.butBoxWhisker.Location = new System.Drawing.Point(93, 11);
+            this.butBoxWhisker.Name = "butBoxWhisker";
+            this.butBoxWhisker.Size = new System.Drawing.Size(75, 23);
+            this.butBoxWhisker.TabIndex = 1;
+            this.butBoxWhisker.Text = "BoxWhisker";
+            this.butBoxWhisker.UseVisualStyleBackColor = true;
+            this.butBoxWhisker.Click += new System.EventHandler(this.butBoxWhisker_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,6 +91,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel viewPanel;
         private System.Windows.Forms.Button butWaterfall;
+        private System.Windows.Forms.Button butBoxWhisker;
     }
 }
 
