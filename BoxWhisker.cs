@@ -84,6 +84,16 @@ namespace ChartExModelSpike {
                     seriesWithTransparency.Transparency = 0;
 
                 chart.Series.Add(series);
+
+                if (i == 1) {
+                    var meanLine = new ChartsModel.LineSeries();
+                    meanLine.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
+                    meanLine.DataMembers[ChartsModel.DataMemberType.Value] = "Mean";
+                    meanLine.DataSource = BoxWhiskerData.GetSampleData(i);
+                    meanLine.LabelsVisibility = false;
+                    meanLine.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0xcb, 0x5c, 0x20) };
+                    chart.Series.Add(meanLine);
+                }
             }
 
             // Legend
