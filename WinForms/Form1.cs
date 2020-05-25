@@ -30,7 +30,7 @@ namespace ChartExModelSpike {
             }
         }
 
-        private void View_SizeChanged(object sender, EventArgs e) { viewPanel.Invalidate(); }
+        private void View_SizeChanged(object sender, EventArgs e) => viewPanel.Invalidate();
 
         private void ResetController() {
             if (modelChart != null) {

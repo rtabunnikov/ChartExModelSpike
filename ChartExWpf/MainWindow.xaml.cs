@@ -47,9 +47,7 @@ namespace ChartExWpf {
             }
         }
 
-        private void viewPanel_SizeChanged(object sender, SizeChangedEventArgs e) {
-            RenderChart();
-        }
+        private void viewPanel_SizeChanged(object sender, SizeChangedEventArgs e) => RenderChart();
 
         private void butWaterfall_Click(object sender, RoutedEventArgs e) {
             ResetController();
