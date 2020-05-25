@@ -85,6 +85,8 @@ namespace ChartExModelSpike {
             };
             chart.Titles.Add(title);
 
+            ChartAppearanceHelper.SetupAppearance(chart);
+
             //// Palette
             //chart.Palette = new ChartsModel.Palette();
             //chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));

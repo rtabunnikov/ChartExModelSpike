@@ -113,6 +113,8 @@ namespace ChartExModelSpike {
             };
             chart.Titles.Add(title);
 
+            ChartAppearanceHelper.SetupAppearance(chart);
+
             return chart;
         }
 
