@@ -35,9 +35,9 @@
             this.panel1.Controls.Add(this.butBoxWhisker);
             this.panel1.Controls.Add(this.butWaterfall);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 404);
+            this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 46);
+            this.panel1.Size = new System.Drawing.Size(964, 46);
             this.panel1.TabIndex = 0;
             // 
             // butBoxWhisker
@@ -66,7 +66,7 @@
             this.viewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewPanel.Location = new System.Drawing.Point(0, 0);
             this.viewPanel.Name = "viewPanel";
-            this.viewPanel.Size = new System.Drawing.Size(800, 404);
+            this.viewPanel.Size = new System.Drawing.Size(964, 605);
             this.viewPanel.TabIndex = 1;
             this.viewPanel.SizeChanged += new System.EventHandler(this.View_SizeChanged);
             this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(964, 651);
             this.Controls.Add(this.viewPanel);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
