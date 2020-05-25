@@ -51,10 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoxWhisker.cs" />
-    <Compile Include="BoxWhiskerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Waterfall.cs" />
-    <Compile Include="WaterfallData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

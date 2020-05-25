@@ -94,4 +94,26 @@ namespace ChartExModelSpike {
             return chart;
         }
     }
+
+    public class WaterfallData {
+        public WaterfallData(string name, double amount) {
+            Name = name;
+            Amount = amount;
+        }
+
+        public string Name { get; private set; }
+        public double Amount { get; private set; }
+        public int PointColor => (int)(Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public bool IsTotal { get; set; }
+
+        public static List<WaterfallData> GetSampleData() {
+            List<WaterfallData> data = new List<WaterfallData>();
+            data.Add(new WaterfallData("Revenue", 23201));
+            data.Add(new WaterfallData("Cost of goods", -8192));
+            data.Add(new WaterfallData("Revenue 2", 16384));
+            data.Add(new WaterfallData("Expense", -12345));
+            data.Add(new WaterfallData("Revenue 3", 3201));
+            return data;
+        }
+    }
 }
