@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.XtraCharts.ModelSupport;
-using DevExpress.Charts.Model;
 
 namespace ChartExModelSpike {
     public partial class Form1 : Form {
@@ -33,19 +32,19 @@ namespace ChartExModelSpike {
 
         private void View_SizeChanged(object sender, EventArgs e) { viewPanel.Invalidate(); }
 
+        private void ResetController() {
+            if (modelChart != null) {
+                modelChart = null;
+                controller.ChartModel = null;
+                controller = factory.CreateController();
+            }
+        }
+
         private void butWaterfall_Click(object sender, EventArgs e) {
             ResetController();
             modelChart = Waterfall.Create();
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
-        }
-
-        private void ResetController() {
-            if(modelChart != null) {
-                modelChart = null;
-                controller.ChartModel = null;
-                controller = factory.CreateController();
-            }
         }
 
         private void butBoxWhisker_Click(object sender, EventArgs e) {
