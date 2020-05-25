@@ -35,7 +35,7 @@ namespace ChartExModelSpike {
 
         private void butWaterfall_Click(object sender, EventArgs e) {
             ResetController();
-            modelChart = CreateWaterfall();
+            modelChart = Waterfall.Create();
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }
@@ -50,7 +50,7 @@ namespace ChartExModelSpike {
 
         private void butBoxWhisker_Click(object sender, EventArgs e) {
             ResetController();
-            modelChart = CreateBoxWhisker();
+            modelChart = BoxWhisker.Create();
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }

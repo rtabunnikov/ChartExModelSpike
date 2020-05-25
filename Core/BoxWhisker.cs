@@ -7,8 +7,8 @@ using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Utils;
 
 namespace ChartExModelSpike {
-    partial class Form1 {
-        private ChartsModel.Chart CreateBoxWhisker() {
+    public static class BoxWhisker {
+        public static ChartsModel.Chart Create() {
             var chart = new ChartsModel.CartesianChart();
 
             // Argument Axis
@@ -116,7 +116,7 @@ namespace ChartExModelSpike {
             return chart;
         }
 
-        ChartsModel.ColorARGB GetSeriesColor(int index) {
+        static ChartsModel.ColorARGB GetSeriesColor(int index) {
             if (index == 0) return new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4);
             if (index == 1) return new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31);
             return new ChartsModel.ColorARGB(0xff, 0xa5, 0xa5, 0xa5);

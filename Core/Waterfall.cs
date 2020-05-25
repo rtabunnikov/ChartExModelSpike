@@ -7,8 +7,8 @@ using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Utils;
 
 namespace ChartExModelSpike {
-    partial class Form1 {
-        private ChartsModel.Chart CreateWaterfall() {
+    public static class Waterfall {
+        public static ChartsModel.Chart Create() {
             var chart = new ChartsModel.CartesianChart();
 
             // Argument Axis

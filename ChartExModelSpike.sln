@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartExModelSpike", "ChartExModelSpike.csproj", "{0F9B4A9E-1127-4D46-BC86-011AC6B3EAF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartExWin", "WinForms\ChartExWin.csproj", "{0F9B4A9E-1127-4D46-BC86-011AC6B3EAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartExCore", "Core\ChartExCore.csproj", "{C00E3F19-6B89-48DA-8B31-B91C4F6F33E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0F9B4A9E-1127-4D46-BC86-011AC6B3EAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F9B4A9E-1127-4D46-BC86-011AC6B3EAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F9B4A9E-1127-4D46-BC86-011AC6B3EAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C00E3F19-6B89-48DA-8B31-B91C4F6F33E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C00E3F19-6B89-48DA-8B31-B91C4F6F33E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C00E3F19-6B89-48DA-8B31-B91C4F6F33E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C00E3F19-6B89-48DA-8B31-B91C4F6F33E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
