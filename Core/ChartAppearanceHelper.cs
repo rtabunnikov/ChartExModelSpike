@@ -1,14 +1,13 @@
-﻿using DevExpress.Charts.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChartsModel = DevExpress.Charts.Model;
+using DevExpress.Charts.Model;
 
 namespace ChartExModelSpike {
     public static class ChartAppearanceHelper {
-        public static void SetupAppearance(ChartsModel.Chart chart) {
+        public static void SetupAppearance(Chart chart) {
             chart.Appearance = new ChartAppearanceOptions();
             // Chart appearance
             chart.Appearance.ChartAppearance = new ChartAppearance() {
