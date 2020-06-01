@@ -53,5 +53,12 @@ namespace ChartExModelSpike {
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }
+
+        private void butFunnel_Click(object sender, EventArgs e) {
+            ResetController();
+            modelChart = Funnel.Create();
+            controller.ChartModel = modelChart;
+            viewPanel.Invalidate();
+        }
     }
 }

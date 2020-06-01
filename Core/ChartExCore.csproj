@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ChartAppearanceHelper.cs" />
     <Compile Include="BoxWhisker.cs" />
+    <Compile Include="Funnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Waterfall.cs" />
   </ItemGroup>

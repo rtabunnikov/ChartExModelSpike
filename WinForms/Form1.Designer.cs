@@ -27,11 +27,13 @@
             this.butBoxWhisker = new System.Windows.Forms.Button();
             this.butWaterfall = new System.Windows.Forms.Button();
             this.viewPanel = new System.Windows.Forms.Panel();
+            this.butFunnel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butFunnel);
             this.panel1.Controls.Add(this.butBoxWhisker);
             this.panel1.Controls.Add(this.butWaterfall);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -71,6 +73,16 @@
             this.viewPanel.SizeChanged += new System.EventHandler(this.View_SizeChanged);
             this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
             // 
+            // butFunnel
+            // 
+            this.butFunnel.Location = new System.Drawing.Point(174, 11);
+            this.butFunnel.Name = "butFunnel";
+            this.butFunnel.Size = new System.Drawing.Size(75, 23);
+            this.butFunnel.TabIndex = 2;
+            this.butFunnel.Text = "Funnel";
+            this.butFunnel.UseVisualStyleBackColor = true;
+            this.butFunnel.Click += new System.EventHandler(this.butFunnel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +104,7 @@
         private System.Windows.Forms.Panel viewPanel;
         private System.Windows.Forms.Button butWaterfall;
         private System.Windows.Forms.Button butBoxWhisker;
+        private System.Windows.Forms.Button butFunnel;
     }
 }
 
