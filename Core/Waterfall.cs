@@ -109,12 +109,13 @@ namespace ChartExModelSpike {
         public bool IsTotal { get; set; }
 
         public static List<WaterfallData> GetSampleData() {
-            List<WaterfallData> data = new List<WaterfallData>();
-            data.Add(new WaterfallData("Revenue", 23201));
-            data.Add(new WaterfallData("Cost of goods", -8192));
-            data.Add(new WaterfallData("Revenue 2", 16384));
-            data.Add(new WaterfallData("Expense", -12345));
-            data.Add(new WaterfallData("Revenue 3", 3201));
+            List<WaterfallData> data = new List<WaterfallData> {
+                new WaterfallData("Revenue", 23201),
+                new WaterfallData("Cost of goods", -8192),
+                new WaterfallData("Revenue 2", 16384),
+                new WaterfallData("Expense", -12345),
+                new WaterfallData("Revenue 3", 3201)
+            };
             return data;
         }
     }
