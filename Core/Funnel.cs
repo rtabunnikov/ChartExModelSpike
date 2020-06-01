@@ -88,13 +88,14 @@ namespace ChartExModelSpike {
         public int PointColor { get; set; }
 
         public static List<FunnelData> GetSampleData() {
-            List<FunnelData> data = new List<FunnelData>();
-            data.Add(new FunnelData("Prospects", 500) { PointColor = unchecked((int)0xff4472c4) });
-            data.Add(new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xff5482d4) });
-            data.Add(new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xff6492e4) });
-            data.Add(new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xff74a2f4) });
-            data.Add(new FunnelData("Negotiations", 100) { PointColor = unchecked((int)0xff84b2f4) });
-            data.Add(new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xff94c2f4) });
+            List<FunnelData> data = new List<FunnelData> {
+                new FunnelData("Prospects", 500) { PointColor = unchecked((int)0xff4472c4) },
+                new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xff5482d4) },
+                new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xffed7d31) },
+                new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xfffd8d41) },
+                new FunnelData("Negotiations", 100) { PointColor = unchecked((int)0xffa5a5a5) },
+                new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xffb5b5b5) }
+            };
             return data;
         }
     }
