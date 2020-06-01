@@ -45,10 +45,11 @@ namespace ChartExModelSpike {
                 LabelsVisibility = true
             };
 
+            var sampleData = WaterfallData.GetSampleData();
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
             series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
-            series.DataSource = WaterfallData.GetSampleData();
+            series.DataSource = sampleData;
 
             series.Label = new ChartsModel.SeriesLabel(series) {
                 EnableAntialiasing = DefaultBoolean.True,
@@ -66,6 +67,11 @@ namespace ChartExModelSpike {
 
             if (series is ChartsModel.ISupportTransparencySeries seriesWithTransparency)
                 seriesWithTransparency.Transparency = 0;
+
+            for (int i = 0; i < sampleData.Count; i++) {
+                if (sampleData[i].IsTotal)
+                    series.Subtotals.Add(i);
+            }
 
             chart.Series.Add(series);
 
@@ -87,12 +93,6 @@ namespace ChartExModelSpike {
 
             ChartAppearanceHelper.SetupAppearance(chart);
 
-            //// Palette
-            //chart.Palette = new ChartsModel.Palette();
-            //chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));
-            //chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31)));
-            //chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xcc, 0xcc, 0xcc)));
-
             return chart;
         }
     }
@@ -105,16 +105,16 @@ namespace ChartExModelSpike {
 
         public string Name { get; private set; }
         public double Amount { get; private set; }
-        public int PointColor => (int)(Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public int PointColor => (int)(IsTotal ? 0xffffc000 : Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
         public bool IsTotal { get; set; }
 
         public static List<WaterfallData> GetSampleData() {
             List<WaterfallData> data = new List<WaterfallData> {
                 new WaterfallData("Revenue", 23201),
-                new WaterfallData("Cost of goods", -8192),
-                new WaterfallData("Revenue 2", 16384),
-                new WaterfallData("Expense", -12345),
-                new WaterfallData("Revenue 3", 3201)
+                new WaterfallData("Cost of goods", -8273),
+                new WaterfallData("Gross margin", 14928) { IsTotal = true },
+                new WaterfallData("Administrative expense", -1151),
+                new WaterfallData("Net income", 13777) { IsTotal = true }
             };
             return data;
         }
