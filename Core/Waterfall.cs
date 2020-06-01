@@ -109,7 +109,7 @@ namespace ChartExModelSpike {
 
         public string Name { get; private set; }
         public double Amount { get; private set; }
-        public int PointColor => (int)(IsTotal ? 0xffffc000 : Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public int PointColor => (int)(IsTotal ? 0xff70ad47 : Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
         public bool IsTotal { get; set; }
 
         public static List<WaterfallData> GetSampleData() {
