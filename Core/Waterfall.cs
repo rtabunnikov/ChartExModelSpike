@@ -68,6 +68,9 @@ namespace ChartExModelSpike {
             series.RisingBarColor = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4);
             series.FallingBarColor = new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31);
             series.SubtotalBarColor = new ChartsModel.ColorARGB(0xff, 0x70, 0xad, 0x47);
+            //series.RisingBarColor = ChartsModel.ColorARGB.Empty;
+            //series.FallingBarColor = ChartsModel.ColorARGB.Empty;
+            //series.SubtotalBarColor = ChartsModel.ColorARGB.Empty;
 
             if (series is ChartsModel.ISupportTransparencySeries seriesWithTransparency)
                 seriesWithTransparency.Transparency = 0;
