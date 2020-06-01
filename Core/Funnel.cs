@@ -28,7 +28,8 @@ namespace ChartExModelSpike {
             // Series
             var series = new ChartsModel.FunnelSeries() {
                 DisplayName = "Series 1",
-                LabelsVisibility = true
+                LabelsVisibility = true,
+                PointShape = ChartsModel.FunnelPointShape.Rectangle
             };
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";

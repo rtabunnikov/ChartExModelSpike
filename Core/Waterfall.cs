@@ -48,7 +48,7 @@ namespace ChartExModelSpike {
             var sampleData = WaterfallData.GetSampleData();
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-            series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
+            //series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = sampleData;
 
             series.Label = new ChartsModel.SeriesLabel(series) {
@@ -62,8 +62,12 @@ namespace ChartExModelSpike {
                     Border = new ChartsModel.Border() { Color = ChartsModel.ColorARGB.Transparent },
                     TextColor = new ChartsModel.ColorARGB(255, 0, 0, 0),
                     BackColor = ChartsModel.ColorARGB.Transparent
-                }
+                },
             };
+
+            series.RisingBarColor = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4);
+            series.FallingBarColor = new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31);
+            series.SubtotalBarColor = new ChartsModel.ColorARGB(0xff, 0x70, 0xad, 0x47);
 
             if (series is ChartsModel.ISupportTransparencySeries seriesWithTransparency)
                 seriesWithTransparency.Transparency = 0;
