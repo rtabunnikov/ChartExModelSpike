@@ -90,11 +90,11 @@ namespace ChartExModelSpike {
         public static List<FunnelData> GetSampleData() {
             List<FunnelData> data = new List<FunnelData> {
                 new FunnelData("Prospects", 500) { PointColor = unchecked((int)0xff4472c4) },
-                new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xff5482d4) },
-                new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xffed7d31) },
-                new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xfffd8d41) },
-                new FunnelData("Negotiations", 100) { PointColor = unchecked((int)0xffa5a5a5) },
-                new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xffb5b5b5) }
+                new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xffed7d31) },
+                new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xffa5a5a5) },
+                new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xffffc000) },
+                new FunnelData("Negotiations", 100) { PointColor = unchecked((int)0xff5898d5) },
+                new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xff70ad47) }
             };
             return data;
         }
