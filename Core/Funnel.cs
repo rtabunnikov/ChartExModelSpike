@@ -33,6 +33,7 @@ namespace ChartExModelSpike {
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
+            series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = FunnelData.GetSampleData();
 
             series.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4) };
@@ -84,16 +85,16 @@ namespace ChartExModelSpike {
 
         public string Stage { get; private set; }
         public double Amount { get; private set; }
-        //public int PointColor => (int)(Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public int PointColor { get; set; }
 
         public static List<FunnelData> GetSampleData() {
             List<FunnelData> data = new List<FunnelData>();
-            data.Add(new FunnelData("Prospects", 500));
-            data.Add(new FunnelData("Qualified prospects", 425));
-            data.Add(new FunnelData("Need analysis", 200));
-            data.Add(new FunnelData("Price quotes", 150));
-            data.Add(new FunnelData("Negotiations", 100));
-            data.Add(new FunnelData("Closed sales", 90));
+            data.Add(new FunnelData("Prospects", 500) { PointColor = unchecked((int)0xff4472c4) });
+            data.Add(new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xff5482d4) });
+            data.Add(new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xff6492e4) });
+            data.Add(new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xff74a2f4) });
+            data.Add(new FunnelData("Negotiations", 100) { PointColor = unchecked((int)0xff84b2f4) });
+            data.Add(new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xff94c2f4) });
             return data;
         }
     }
