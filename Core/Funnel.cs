@@ -34,7 +34,7 @@ namespace ChartExModelSpike {
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-            series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
+            //series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = FunnelData.GetSampleData();
 
             series.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4) };
