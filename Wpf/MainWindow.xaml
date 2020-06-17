@@ -18,6 +18,7 @@
             </StackPanel.Background>
             <Button x:Name="butWaterfall" Content="Waterfall" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butWaterfall_Click"/>
             <Button x:Name="butBoxWhisker" Content="Box and Whisker" HorizontalAlignment="Left" Margin="10,10,0,10" Width="110" Click="butBoxWhisker_Click"/>
+            <Button x:Name="butFunnel" Content="Funnel" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butFunnel_Click"/>
         </StackPanel>
     </Grid>
 </Window>

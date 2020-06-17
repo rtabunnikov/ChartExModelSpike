@@ -62,5 +62,12 @@ namespace ChartExWpf {
             controller.ChartModel = modelChart;
             RenderChart();
         }
+
+        private void butFunnel_Click(object sender, RoutedEventArgs e) {
+            ResetController();
+            modelChart = Funnel.Create();
+            controller.ChartModel = modelChart;
+            RenderChart();
+        }
     }
 }
