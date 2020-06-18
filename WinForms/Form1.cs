@@ -60,5 +60,12 @@ namespace ChartExModelSpike {
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }
+
+        private void butHistogram_Click(object sender, EventArgs e) {
+            ResetController();
+            modelChart = Histogram.Create();
+            controller.ChartModel = modelChart;
+            viewPanel.Invalidate();
+        }
     }
 }

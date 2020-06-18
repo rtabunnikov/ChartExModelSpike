@@ -69,5 +69,12 @@ namespace ChartExWpf {
             controller.ChartModel = modelChart;
             RenderChart();
         }
+
+        private void butHistogram_Click(object sender, RoutedEventArgs e) {
+            ResetController();
+            modelChart = Histogram.Create();
+            controller.ChartModel = modelChart;
+            RenderChart();
+        }
     }
 }
