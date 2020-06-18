@@ -76,5 +76,12 @@ namespace ChartExWpf {
             controller.ChartModel = modelChart;
             RenderChart();
         }
+
+        private void butPareto_Click(object sender, RoutedEventArgs e) {
+            ResetController();
+            modelChart = Pareto.Create();
+            controller.ChartModel = modelChart;
+            RenderChart();
+        }
     }
 }

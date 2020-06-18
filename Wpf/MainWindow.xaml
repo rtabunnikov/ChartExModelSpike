@@ -20,6 +20,7 @@
             <Button x:Name="butBoxWhisker" Content="Box and Whisker" HorizontalAlignment="Left" Margin="10,10,0,10" Width="110" Click="butBoxWhisker_Click"/>
             <Button x:Name="butFunnel" Content="Funnel" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butFunnel_Click"/>
             <Button x:Name="butHistogram" Content="Histogram" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butHistogram_Click"/>
+            <Button x:Name="butPareto" Content="Pareto" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butPareto_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -67,5 +67,12 @@ namespace ChartExModelSpike {
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }
+
+        private void butPareto_Click(object sender, EventArgs e) {
+            ResetController();
+            modelChart = Pareto.Create();
+            controller.ChartModel = modelChart;
+            viewPanel.Invalidate();
+        }
     }
 }
