@@ -19,7 +19,7 @@ namespace ChartExModelSpike {
                 TickmarksVisible = false,
                 Visible = true,
                 IntervalOptions = new ChartsModel.ModelIntervalOptions() {
-                    DivisionMode = DevExpress.Charts.Native.IntervalDivisionModeNative.Count,
+                    DivisionMode = ChartsModel.IntervalDivisionMode.Count,
                     Count = 4,
                     Width = 5,
                     OverflowValue = 16,
