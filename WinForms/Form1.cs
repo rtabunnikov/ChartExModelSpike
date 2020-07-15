@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.XtraCharts.ModelSupport;
+using DevExpress.XtraTreeMap.Native;
 
 namespace ChartExModelSpike {
     public partial class Form1 : Form {
@@ -15,10 +16,16 @@ namespace ChartExModelSpike {
         private ChartsModel.Controller controller = null;
         private ChartsModel.Chart modelChart = null;
 
+        private readonly TreeModelControllerFactory treeMapFactory;
+        private TreeMapController treeMapController = null;
+        private ChartsModel.TreeMap treeMapChart = null;
+
         public Form1() {
             InitializeComponent();
             factory = new XtraChartsModelControllerFactory();
             controller = factory.CreateController();
+            treeMapFactory = new TreeModelControllerFactory();
+            treeMapController = (TreeMapController)treeMapFactory.CreateController();
         }
 
         private void View_Paint(object sender, PaintEventArgs e) {
@@ -27,6 +34,12 @@ namespace ChartExModelSpike {
                 ChartsModel.ModelRect rect = new ChartsModel.ModelRect(8, 8, viewPanel.ClientSize.Width - 16, viewPanel.ClientSize.Height - 16);
                 var renderContext = factory.CreateRenderContext(rect, graphics);
                 controller.RenderChart(renderContext);
+            }
+            else if (treeMapChart != null) {
+                var graphics = e.Graphics;
+                ChartsModel.ModelRect rect = new ChartsModel.ModelRect(8, 8, viewPanel.ClientSize.Width - 16, viewPanel.ClientSize.Height - 16);
+                var renderContext = treeMapFactory.CreateRenderContext(rect, graphics);
+                treeMapController.RenderChart(renderContext);
             }
         }
 
@@ -37,6 +50,11 @@ namespace ChartExModelSpike {
                 modelChart = null;
                 controller.ChartModel = null;
                 controller = factory.CreateController();
+            }
+            if (treeMapChart != null) {
+                treeMapChart = null;
+                treeMapController.ChartModel = null;
+                treeMapController = (TreeMapController)treeMapFactory.CreateController();
             }
         }
 
@@ -72,6 +90,13 @@ namespace ChartExModelSpike {
             ResetController();
             modelChart = Pareto.Create();
             controller.ChartModel = modelChart;
+            viewPanel.Invalidate();
+        }
+
+        private void butTreemap_Click(object sender, EventArgs e) {
+            ResetController();
+            treeMapChart = Treemap.Create();
+            treeMapController.TreeMapModel = treeMapChart;
             viewPanel.Invalidate();
         }
     }

@@ -24,17 +24,19 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.butPareto = new System.Windows.Forms.Button();
             this.butHistogram = new System.Windows.Forms.Button();
             this.butFunnel = new System.Windows.Forms.Button();
             this.butBoxWhisker = new System.Windows.Forms.Button();
             this.butWaterfall = new System.Windows.Forms.Button();
             this.viewPanel = new System.Windows.Forms.Panel();
-            this.butPareto = new System.Windows.Forms.Button();
+            this.butTreemap = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butTreemap);
             this.panel1.Controls.Add(this.butPareto);
             this.panel1.Controls.Add(this.butHistogram);
             this.panel1.Controls.Add(this.butFunnel);
@@ -46,6 +48,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1285, 57);
             this.panel1.TabIndex = 0;
+            // 
+            // butPareto
+            // 
+            this.butPareto.Location = new System.Drawing.Point(448, 14);
+            this.butPareto.Margin = new System.Windows.Forms.Padding(4);
+            this.butPareto.Name = "butPareto";
+            this.butPareto.Size = new System.Drawing.Size(100, 28);
+            this.butPareto.TabIndex = 4;
+            this.butPareto.Text = "Pareto";
+            this.butPareto.UseVisualStyleBackColor = true;
+            this.butPareto.Click += new System.EventHandler(this.butPareto_Click);
             // 
             // butHistogram
             // 
@@ -103,16 +116,16 @@
             this.viewPanel.SizeChanged += new System.EventHandler(this.View_SizeChanged);
             this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
             // 
-            // butPareto
+            // butTreemap
             // 
-            this.butPareto.Location = new System.Drawing.Point(448, 14);
-            this.butPareto.Margin = new System.Windows.Forms.Padding(4);
-            this.butPareto.Name = "butPareto";
-            this.butPareto.Size = new System.Drawing.Size(100, 28);
-            this.butPareto.TabIndex = 4;
-            this.butPareto.Text = "Pareto";
-            this.butPareto.UseVisualStyleBackColor = true;
-            this.butPareto.Click += new System.EventHandler(this.butPareto_Click);
+            this.butTreemap.Location = new System.Drawing.Point(556, 14);
+            this.butTreemap.Margin = new System.Windows.Forms.Padding(4);
+            this.butTreemap.Name = "butTreemap";
+            this.butTreemap.Size = new System.Drawing.Size(100, 28);
+            this.butTreemap.TabIndex = 5;
+            this.butTreemap.Text = "Treemap";
+            this.butTreemap.UseVisualStyleBackColor = true;
+            this.butTreemap.Click += new System.EventHandler(this.butTreemap_Click);
             // 
             // Form1
             // 
@@ -139,6 +152,7 @@
         private System.Windows.Forms.Button butFunnel;
         private System.Windows.Forms.Button butHistogram;
         private System.Windows.Forms.Button butPareto;
+        private System.Windows.Forms.Button butTreemap;
     }
 }
 
