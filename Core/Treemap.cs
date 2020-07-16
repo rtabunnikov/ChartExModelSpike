@@ -16,13 +16,18 @@ namespace ChartExModelSpike {
             chart.DataSource = data;
             chart.BorderColor = new ChartsModel.ColorARGB(255, 255, 255, 255);
             chart.ItemBorderVisible = true;
+            chart.LabelHorizontalAlignment = ChartsModel.StringAlignment.Near;
+            chart.LabelVerticalAlignment = ChartsModel.StringAlignment.Far;
             chart.Palette = new ChartsModel.Palette(chart);
-            foreach (var item in data) {
-                byte r = (byte)((item.Color & 0x00ff0000) >> 16);
-                byte g = (byte)((item.Color & 0x0000ff00) >> 8);
-                byte b = (byte)(item.Color & 0x000000ff);
-                chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, r, g, b)));
-            }
+            chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));
+            chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31)));
+            chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xa5, 0xa5, 0xa5)));
+            //foreach (var item in data) {
+            //    byte r = (byte)((item.Color & 0x00ff0000) >> 16);
+            //    byte g = (byte)((item.Color & 0x0000ff00) >> 8);
+            //    byte b = (byte)(item.Color & 0x000000ff);
+            //    chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, r, g, b)));
+            //}
             return chart;
         }
     }
@@ -30,6 +35,7 @@ namespace ChartExModelSpike {
     public class TreemapData {
         private const int Color1 = 0x4472c4;
         private const int Color2 = 0xed7d31;
+        private const int Color3 = 0xa5a5a5;
 
         public TreemapData(string meal, string category, string product, double amount, int color) {
             Meal = meal;
@@ -59,6 +65,9 @@ namespace ChartExModelSpike {
             result.Add(new TreemapData("Lunch", "Food", "Salad", 70, Color2));
             result.Add(new TreemapData("Lunch", "Food", "Pie", 45, Color2));
             result.Add(new TreemapData("Lunch", "Food", "Cookies", 25, Color2));
+            result.Add(new TreemapData("Supper", "Beverage", "Vine", 75, Color3));
+            result.Add(new TreemapData("Supper", "Food", "Fish", 125, Color3));
+            result.Add(new TreemapData("Supper", "Food", "Meat", 150, Color3));
             //result.Sort((x, y) => x.Amount.CompareTo(y.Amount));
             return result;
         }
