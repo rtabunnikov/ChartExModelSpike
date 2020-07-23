@@ -12,7 +12,7 @@ namespace ChartExModelSpike {
             chart.GroupDataMember = "Meal";
             chart.LabelDataMember = "Product";
             chart.ValueDataMember = "Amount";
-            //chart.ColorDataMember = "Color";
+            chart.ColorDataMember = "Color";
             var data = TreemapData.GetSampleData();
             chart.DataSource = data;
             chart.BorderColor = new ChartsModel.ColorARGB(255, 255, 255, 255);
@@ -56,9 +56,9 @@ namespace ChartExModelSpike {
             result.Add(new TreemapData("Lunch", "Food", "Salad", 70));
             result.Add(new TreemapData("Lunch", "Food", "Pie", 45));
             result.Add(new TreemapData("Lunch", "Food", "Cookies", 25, unchecked((int)0xff6666aa)));
-            result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
-            result.Add(new TreemapData("Supper", "Food", "Fish", 125));
-            result.Add(new TreemapData("Supper", "Food", "Meat", 150));
+            //result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
+            //result.Add(new TreemapData("Supper", "Food", "Fish", 125));
+            //result.Add(new TreemapData("Supper", "Food", "Meat", 150));
             return result;
         }
     }
