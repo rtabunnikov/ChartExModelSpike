@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Xpf.Charts.ModelSupport;
 using ChartExModelSpike;
+using DevExpress.Xpf.TreeMap;
 
 namespace ChartExWpf {
     /// <summary>
@@ -25,10 +26,16 @@ namespace ChartExWpf {
         private ChartsModel.Controller controller = null;
         private ChartsModel.Chart modelChart = null;
 
+        private readonly TreeMapModelControllerFactory treeMapFactory;
+        private TreeMapController treeMapController = null;
+        private ChartsModel.TreeMap treeMapChart = null;
+
         public MainWindow() {
             InitializeComponent();
             factory = new XpfChartsModelControllerFactory();
             controller = factory.CreateController();
+            treeMapFactory = new TreeMapModelControllerFactory();
+            treeMapController = (TreeMapController)treeMapFactory.CreateController();
         }
 
         private void ResetController() {
@@ -37,6 +44,11 @@ namespace ChartExWpf {
                 controller.ChartModel = null;
                 controller = factory.CreateController();
             }
+            if (treeMapChart != null) {
+                treeMapChart = null;
+                treeMapController.ChartModel = null;
+                treeMapController = (TreeMapController)treeMapFactory.CreateController();
+            }
         }
 
         private void RenderChart() {
@@ -44,6 +56,11 @@ namespace ChartExWpf {
                 ChartsModel.ModelRect rect = new ChartsModel.ModelRect(0, 0, viewPanel.ActualWidth, viewPanel.ActualHeight);
                 var renderContext = factory.CreateRenderContext(rect, viewPanel);
                 controller.RenderChart(renderContext);
+            }
+            else if (treeMapChart != null) {
+                ChartsModel.ModelRect rect = new ChartsModel.ModelRect(0, 0, viewPanel.ActualWidth, viewPanel.ActualHeight);
+                var renderContext = treeMapFactory.CreateRenderContext(rect, viewPanel);
+                treeMapController.RenderChart(renderContext);
             }
         }
 
@@ -81,6 +98,13 @@ namespace ChartExWpf {
             ResetController();
             modelChart = Pareto.Create();
             controller.ChartModel = modelChart;
+            RenderChart();
+        }
+
+        private void butTreemap_Click(object sender, RoutedEventArgs e) {
+            ResetController();
+            treeMapChart = Treemap.Create();
+            treeMapController.TreeMapModel = treeMapChart;
             RenderChart();
         }
     }
