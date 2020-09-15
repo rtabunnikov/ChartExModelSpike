@@ -134,7 +134,7 @@ namespace ChartExModelSpike {
             Quartile3 = quartile3;
             Max = max;
             Mean = mean;
-            Outliers = new double[0];
+            Outliers = new List<double>();
         }
 
         public string Name { get; set; }
@@ -144,12 +144,12 @@ namespace ChartExModelSpike {
         public double Quartile3 { get; set; }
         public double Max { get; set; }
         public double Mean { get; set; }
-        public double[] Outliers { get; set; }
+        public List<double> Outliers { get; set;  }
 
         public static List<BoxWhiskerData> GetSampleData(int seriesIndex) {
             var data = new List<BoxWhiskerData>();
             if (seriesIndex == 0) {
-                data.Add(new BoxWhiskerData("English", 58, 58.25, 61.5, 63, 63, 59.375) { Outliers = new double[] { 46 } });
+                data.Add(new BoxWhiskerData("English", 58, 58.25, 61.5, 63, 63, 59.375) { Outliers = new List<double>() { 46 } });
                 data.Add(new BoxWhiskerData("Physics", 60, 60, 60.5, 61, 61, 60.5));
                 data.Add(new BoxWhiskerData("Math", 60, 60.5, 62, 62.5, 63, 61.5));
             }
@@ -159,7 +159,7 @@ namespace ChartExModelSpike {
                 data.Add(new BoxWhiskerData("Math", 51, 51, 53, 57, 58, 53.8));
             }
             else {
-                data.Add(new BoxWhiskerData("English", 63.25, 64, 64.25, 65.5, 67, 63.25) { Outliers = new double[] { 45, 69 } });
+                data.Add(new BoxWhiskerData("English", 63.25, 64, 64.25, 65.5, 67, 63.25) { Outliers = new List<double>() { 45, 69 } });
                 data.Add(new BoxWhiskerData("Physics", 64, 64, 64.5, 65, 65, 64.5));
                 data.Add(new BoxWhiskerData("Math", 45, 54.5, 64, 66.5, 67, 61.2));
             }
