@@ -60,6 +60,7 @@
     <Compile Include="Histogram.cs" />
     <Compile Include="Pareto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sunburst.cs" />
     <Compile Include="Treemap.cs" />
     <Compile Include="Waterfall.cs" />
   </ItemGroup>

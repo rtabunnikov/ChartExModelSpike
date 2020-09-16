@@ -24,18 +24,20 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.butTreemap = new System.Windows.Forms.Button();
             this.butPareto = new System.Windows.Forms.Button();
             this.butHistogram = new System.Windows.Forms.Button();
             this.butFunnel = new System.Windows.Forms.Button();
             this.butBoxWhisker = new System.Windows.Forms.Button();
             this.butWaterfall = new System.Windows.Forms.Button();
             this.viewPanel = new System.Windows.Forms.Panel();
-            this.butTreemap = new System.Windows.Forms.Button();
+            this.butSunburst = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butSunburst);
             this.panel1.Controls.Add(this.butTreemap);
             this.panel1.Controls.Add(this.butPareto);
             this.panel1.Controls.Add(this.butHistogram);
@@ -43,18 +45,26 @@
             this.panel1.Controls.Add(this.butBoxWhisker);
             this.panel1.Controls.Add(this.butWaterfall);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 744);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1285, 57);
+            this.panel1.Size = new System.Drawing.Size(964, 46);
             this.panel1.TabIndex = 0;
+            // 
+            // butTreemap
+            // 
+            this.butTreemap.Location = new System.Drawing.Point(417, 11);
+            this.butTreemap.Name = "butTreemap";
+            this.butTreemap.Size = new System.Drawing.Size(75, 23);
+            this.butTreemap.TabIndex = 5;
+            this.butTreemap.Text = "Treemap";
+            this.butTreemap.UseVisualStyleBackColor = true;
+            this.butTreemap.Click += new System.EventHandler(this.butTreemap_Click);
             // 
             // butPareto
             // 
-            this.butPareto.Location = new System.Drawing.Point(448, 14);
-            this.butPareto.Margin = new System.Windows.Forms.Padding(4);
+            this.butPareto.Location = new System.Drawing.Point(336, 11);
             this.butPareto.Name = "butPareto";
-            this.butPareto.Size = new System.Drawing.Size(100, 28);
+            this.butPareto.Size = new System.Drawing.Size(75, 23);
             this.butPareto.TabIndex = 4;
             this.butPareto.Text = "Pareto";
             this.butPareto.UseVisualStyleBackColor = true;
@@ -62,10 +72,9 @@
             // 
             // butHistogram
             // 
-            this.butHistogram.Location = new System.Drawing.Point(340, 14);
-            this.butHistogram.Margin = new System.Windows.Forms.Padding(4);
+            this.butHistogram.Location = new System.Drawing.Point(255, 11);
             this.butHistogram.Name = "butHistogram";
-            this.butHistogram.Size = new System.Drawing.Size(100, 28);
+            this.butHistogram.Size = new System.Drawing.Size(75, 23);
             this.butHistogram.TabIndex = 3;
             this.butHistogram.Text = "Histogram";
             this.butHistogram.UseVisualStyleBackColor = true;
@@ -73,10 +82,9 @@
             // 
             // butFunnel
             // 
-            this.butFunnel.Location = new System.Drawing.Point(232, 14);
-            this.butFunnel.Margin = new System.Windows.Forms.Padding(4);
+            this.butFunnel.Location = new System.Drawing.Point(174, 11);
             this.butFunnel.Name = "butFunnel";
-            this.butFunnel.Size = new System.Drawing.Size(100, 28);
+            this.butFunnel.Size = new System.Drawing.Size(75, 23);
             this.butFunnel.TabIndex = 2;
             this.butFunnel.Text = "Funnel";
             this.butFunnel.UseVisualStyleBackColor = true;
@@ -84,10 +92,9 @@
             // 
             // butBoxWhisker
             // 
-            this.butBoxWhisker.Location = new System.Drawing.Point(124, 14);
-            this.butBoxWhisker.Margin = new System.Windows.Forms.Padding(4);
+            this.butBoxWhisker.Location = new System.Drawing.Point(93, 11);
             this.butBoxWhisker.Name = "butBoxWhisker";
-            this.butBoxWhisker.Size = new System.Drawing.Size(100, 28);
+            this.butBoxWhisker.Size = new System.Drawing.Size(75, 23);
             this.butBoxWhisker.TabIndex = 1;
             this.butBoxWhisker.Text = "BoxWhisker";
             this.butBoxWhisker.UseVisualStyleBackColor = true;
@@ -95,10 +102,9 @@
             // 
             // butWaterfall
             // 
-            this.butWaterfall.Location = new System.Drawing.Point(16, 14);
-            this.butWaterfall.Margin = new System.Windows.Forms.Padding(4);
+            this.butWaterfall.Location = new System.Drawing.Point(12, 11);
             this.butWaterfall.Name = "butWaterfall";
-            this.butWaterfall.Size = new System.Drawing.Size(100, 28);
+            this.butWaterfall.Size = new System.Drawing.Size(75, 23);
             this.butWaterfall.TabIndex = 0;
             this.butWaterfall.Text = "Waterfall";
             this.butWaterfall.UseVisualStyleBackColor = true;
@@ -109,32 +115,29 @@
             this.viewPanel.BackColor = System.Drawing.Color.White;
             this.viewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewPanel.Location = new System.Drawing.Point(0, 0);
-            this.viewPanel.Margin = new System.Windows.Forms.Padding(4);
             this.viewPanel.Name = "viewPanel";
-            this.viewPanel.Size = new System.Drawing.Size(1285, 744);
+            this.viewPanel.Size = new System.Drawing.Size(964, 605);
             this.viewPanel.TabIndex = 1;
             this.viewPanel.SizeChanged += new System.EventHandler(this.View_SizeChanged);
             this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
             // 
-            // butTreemap
+            // butSunburst
             // 
-            this.butTreemap.Location = new System.Drawing.Point(556, 14);
-            this.butTreemap.Margin = new System.Windows.Forms.Padding(4);
-            this.butTreemap.Name = "butTreemap";
-            this.butTreemap.Size = new System.Drawing.Size(100, 28);
-            this.butTreemap.TabIndex = 5;
-            this.butTreemap.Text = "Treemap";
-            this.butTreemap.UseVisualStyleBackColor = true;
-            this.butTreemap.Click += new System.EventHandler(this.butTreemap_Click);
+            this.butSunburst.Location = new System.Drawing.Point(498, 11);
+            this.butSunburst.Name = "butSunburst";
+            this.butSunburst.Size = new System.Drawing.Size(75, 23);
+            this.butSunburst.TabIndex = 6;
+            this.butSunburst.Text = "Sunburst";
+            this.butSunburst.UseVisualStyleBackColor = true;
+            this.butSunburst.Click += new System.EventHandler(this.butSunburst_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 801);
+            this.ClientSize = new System.Drawing.Size(964, 651);
             this.Controls.Add(this.viewPanel);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChartEx - Common Charts Model spike (WinForms)";
@@ -153,6 +156,7 @@
         private System.Windows.Forms.Button butHistogram;
         private System.Windows.Forms.Button butPareto;
         private System.Windows.Forms.Button butTreemap;
+        private System.Windows.Forms.Button butSunburst;
     }
 }
 
