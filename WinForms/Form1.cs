@@ -53,7 +53,7 @@ namespace ChartExModelSpike {
                     return new XtraChartsModelControllerFactory();
                 case ChartType.TreeMap:
                 case ChartType.Sunburst:
-                    return new TreeModelControllerFactory();
+                    return new TreeMapModelControllerFactory();
                 default:
                     throw new ArgumentException("Unknown chart type.");
             }
