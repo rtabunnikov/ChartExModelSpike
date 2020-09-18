@@ -4,7 +4,6 @@ using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Xpf.Charts.ModelSupport;
 using ChartExModelSpike;
 using DevExpress.Xpf.TreeMap;
-using DevExpress.Charts.Model;
 
 namespace ChartExWpf {
     /// <summary>
@@ -20,7 +19,7 @@ namespace ChartExWpf {
         Waterfall = 6
     }
     public partial class MainWindow : Window {
-        private ModelControllerFactoryBase factory;
+        private ChartsModel.ModelControllerFactoryBase factory;
         private ChartsModel.IController controller = null;
         private ChartsModel.ChartBase modelChart = null;
 
@@ -35,7 +34,7 @@ namespace ChartExWpf {
             factory = CreateFactory(chartType);
             controller = factory.CreateController();
         }
-        ModelControllerFactoryBase CreateFactory(ChartType chartType) {
+        ChartsModel.ModelControllerFactoryBase CreateFactory(ChartType chartType) {
             switch (chartType) {
                 case ChartType.BoxWhisker:
                 case ChartType.Funnel:
@@ -44,8 +43,9 @@ namespace ChartExWpf {
                 case ChartType.Waterfall:
                     return new XpfChartsModelControllerFactory();
                 case ChartType.TreeMap:
-                case ChartType.Sunburst:
                     return new TreeMapModelControllerFactory();
+                case ChartType.Sunburst:
+                    return new SunburstModelControllerFactory();
                 default:
                     throw new ArgumentException("Unknown chart type.");
             }
@@ -99,6 +99,13 @@ namespace ChartExWpf {
         private void butTreemap_Click(object sender, RoutedEventArgs e) {
             Reset(ChartType.TreeMap);
             modelChart = Treemap.Create();
+            controller.ChartModel = modelChart;
+            RenderChart();
+        }
+
+        private void butSunburst_Click(object sender, RoutedEventArgs e) {
+            Reset(ChartType.Sunburst);
+            modelChart = Sunburst.Create();
             controller.ChartModel = modelChart;
             RenderChart();
         }

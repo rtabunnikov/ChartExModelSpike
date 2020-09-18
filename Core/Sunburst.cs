@@ -6,7 +6,7 @@ namespace ChartExModelSpike {
     public static class Sunburst {
         public static ChartsModel.Sunburst Create() {
             var chart = new ChartsModel.Sunburst();
-            chart.GroupDataMember = "Meal";
+            chart.GroupDataMembers = new string[] { "Meal" };
             chart.LabelDataMember = "Product";
             chart.ValueDataMember = "Amount";
             chart.ColorDataMember = "Color";
