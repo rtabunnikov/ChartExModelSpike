@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Charts.Model;
+using System;
 using System.Collections.Generic;
 using ChartsModel = DevExpress.Charts.Model;
 
@@ -12,6 +13,8 @@ namespace ChartExModelSpike {
             chart.ColorDataMember = "Color";
             var data = SunburstData.GetSampleData();
             chart.DataSource = data;
+
+            chart.LabelFormatter = new SunburstDataLabelFormatter();
             
             chart.Palette = new ChartsModel.Palette(chart);
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));
@@ -50,9 +53,14 @@ namespace ChartExModelSpike {
             result.Add(new TreemapData("Lunch", "Food", "Pie", 45));
             result.Add(new TreemapData("Lunch", "Food", "Cookies", 25, unchecked((int)0xff6666aa)));
             result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
-            result.Add(new TreemapData("Supper", "Food", null, 125, 0));
+            result.Add(new TreemapData("Supper", "Food", "Chicken", 125, 0));
             result.Add(new TreemapData("Supper", "Food", "Meat", 150));
             return result;
+        }
+    }
+    public class SunburstDataLabelFormatter : IDataLabelFormatter {
+        public string GetDataLabelText(LabelPointData pointData) {
+            return (string)pointData.Argument;
         }
     }
 }

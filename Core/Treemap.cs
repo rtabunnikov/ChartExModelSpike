@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Charts.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace ChartExModelSpike {
             var data = TreemapData.GetSampleData();
             chart.DataSource = data;
             chart.BorderColor = new ChartsModel.ColorARGB(255, 255, 255, 255);
+            chart.LabelFormatter = new TreemapDataLabelFormatter();
             chart.ItemBorderVisible = true;
             chart.LabelHorizontalAlignment = ChartsModel.StringAlignment.Near;
             chart.LabelVerticalAlignment = ChartsModel.StringAlignment.Far;
@@ -56,10 +58,15 @@ namespace ChartExModelSpike {
             result.Add(new TreemapData("Lunch", "Food", "Salad", 70));
             result.Add(new TreemapData("Lunch", "Food", "Pie", 45));
             result.Add(new TreemapData("Lunch", "Food", "Cookies", 25, unchecked((int)0xff6666aa)));
-            //result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
-            //result.Add(new TreemapData("Supper", "Food", "Fish", 125));
-            //result.Add(new TreemapData("Supper", "Food", "Meat", 150));
+            result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
+            result.Add(new TreemapData("Supper", "Food", "Fish", 50));
+            result.Add(new TreemapData("Supper", "Food", "Meat", 35));
             return result;
+        }
+    }
+    public class TreemapDataLabelFormatter : IDataLabelFormatter {
+        public string GetDataLabelText(LabelPointData pointData) {
+            return (string)pointData.Argument;
         }
     }
 }
