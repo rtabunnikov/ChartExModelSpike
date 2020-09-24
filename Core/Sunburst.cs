@@ -7,9 +7,9 @@ namespace ChartExModelSpike {
     public static class Sunburst {
         public static ChartsModel.Sunburst Create() {
             var chart = new ChartsModel.Sunburst();
-            chart.GroupDataMembers = new string[] { "Meal" };
-            chart.LabelDataMember = "Product";
-            chart.ValueDataMember = "Amount";
+            chart.GroupDataMembers = new string[] { "Quarter", "Month" };
+            chart.LabelDataMember = "Week";
+            chart.ValueDataMember = "Sales";
             chart.ColorDataMember = "Color";
             var data = SunburstData.GetSampleData();
             chart.DataSource = data;
@@ -24,37 +24,37 @@ namespace ChartExModelSpike {
         }
     }
     public class SunburstData {
-        public SunburstData(string meal, string category, string product, double amount, int? color = null) {
-            Meal = meal;
-            Category = category;
-            Product = product;
-            Amount = amount;
+        public SunburstData(string quarter, string month, string week, double sales, int? color = null) {
+            Quarter = quarter;
+            Month = month;
+            Week = week;
+            Sales = sales;
             Color = color;
         }
 
-        public string Meal { get; }
-        public string Category { get; }
-        public string Product { get; }
-        public double Amount { get; }
+        public string Quarter { get; }
+        public string Month { get; }
+        public string Week { get; }
+        public double Sales { get; }
         public int? Color { get; }
 
-        public static List<TreemapData> GetSampleData() {
-            var result = new List<TreemapData>();
-            result.Add(new TreemapData("Breakfast", "Beverage", "Coffee", 20));
-            result.Add(new TreemapData("Breakfast", "Beverage", "Tea", 9));
-            result.Add(new TreemapData("Breakfast", "Food", "Waffles", 12));
-            result.Add(new TreemapData("Breakfast", "Food", "Pancakes", 35));
-            result.Add(new TreemapData("Breakfast", "Food", "Eggs", 24));
-            result.Add(new TreemapData("Lunch", "Beverage", "Coffee", 10));
-            result.Add(new TreemapData("Lunch", "Beverage", "Iced Tea", 45, unchecked((int)0xff33aa33)));
-            result.Add(new TreemapData("Lunch", "Food", "Soup", 16));
-            result.Add(new TreemapData("Lunch", "Food", "Sandwich", 36));
-            result.Add(new TreemapData("Lunch", "Food", "Salad", 70));
-            result.Add(new TreemapData("Lunch", "Food", "Pie", 45));
-            result.Add(new TreemapData("Lunch", "Food", "Cookies", 25, unchecked((int)0xff6666aa)));
-            result.Add(new TreemapData("Supper", "Beverage", "Vine", 75));
-            result.Add(new TreemapData("Supper", "Food", "Chicken", 125, 0));
-            result.Add(new TreemapData("Supper", "Food", "Meat", 150));
+        public static List<SunburstData> GetSampleData() {
+            var result = new List<SunburstData>();
+            result.Add(new SunburstData("1st", "Jan", "", 3.5));
+            result.Add(new SunburstData("", "Feb", "Week1", 1.2));
+            result.Add(new SunburstData("", "", "Week2", 0.8));
+            result.Add(new SunburstData("", "", "Week3", 0.6));
+            result.Add(new SunburstData("", "", "Week4", 0.5));
+            result.Add(new SunburstData("", "Mar", "", 1.7));
+            result.Add(new SunburstData("2nd", "Apr", "", 1.1, unchecked((int)0xff33aa33)));
+            result.Add(new SunburstData("", "May", "", 0.8));
+            result.Add(new SunburstData("", "Jun", "", 0.3));
+            result.Add(new SunburstData("3rd", "Jul", "", 0.7));
+            result.Add(new SunburstData("", "Aug", "", 0.6));
+            result.Add(new SunburstData("", "Sep", "", 0.1, unchecked((int)0xff6666aa)));
+            result.Add(new SunburstData("4th", "Oct", "", 0.5));
+            result.Add(new SunburstData("", "Nov", "", 0.4, 0));
+            result.Add(new SunburstData("", "Dec", "", 0.3));
             return result;
         }
     }
