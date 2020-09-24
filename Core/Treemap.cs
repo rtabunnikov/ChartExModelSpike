@@ -10,10 +10,13 @@ namespace ChartExModelSpike {
     public static class Treemap {
         public static ChartsModel.TreeMap Create() {
             var chart = new ChartsModel.TreeMap();
-            chart.GroupDataMember = "Meal";
-            chart.LabelDataMember = "Product";
-            chart.ValueDataMember = "Amount";
-            chart.ColorDataMember = "Color";
+            ChartsModel.HierarchicalChartFlatDataAdapter adapter = new ChartsModel.HierarchicalChartFlatDataAdapter();
+            chart.DataAdapter = adapter;
+
+            adapter.GroupDataMembers = new string[] { "Meal" };
+            adapter.LabelDataMember = "Product";
+            adapter.ValueDataMember = "Amount";
+            adapter.ColorDataMember = "Color";
             var data = TreemapData.GetSampleData();
             chart.DataSource = data;
             chart.BorderColor = new ChartsModel.ColorARGB(255, 255, 255, 255);
@@ -64,6 +67,7 @@ namespace ChartExModelSpike {
             return result;
         }
     }
+
     public class TreemapDataLabelFormatter : IDataLabelFormatter {
         public string GetDataLabelText(LabelPointData pointData) {
             return (string)pointData.Argument;

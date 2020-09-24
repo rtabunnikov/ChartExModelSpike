@@ -7,20 +7,42 @@ namespace ChartExModelSpike {
     public static class Sunburst {
         public static ChartsModel.Sunburst Create() {
             var chart = new ChartsModel.Sunburst();
-            chart.GroupDataMembers = new string[] { "Quarter", "Month" };
-            chart.LabelDataMember = "Week";
-            chart.ValueDataMember = "Sales";
-            chart.ColorDataMember = "Color";
-            var data = SunburstData.GetSampleData();
+            //chart.GroupDataMembers = new string[] { "Quarter", "Month" };
+            //chart.LabelDataMember = "Week";
+            //chart.ValueDataMember = "Sales";
+            //SetFlatDataAdapter(chart);
+
+            ChartsModel.HierarchicalChartHierarchicalDataAdapter adapter = new ChartsModel.HierarchicalChartHierarchicalDataAdapter();
+            chart.DataAdapter = adapter;
+
+            HierarchicalChartDataMapping mapping = new HierarchicalChartDataMapping();
+            mapping.LabelDataMember = "Label";
+            mapping.ValueDataMember = "Value";
+            mapping.ChildrenDataMember = "Children";
+            mapping.Type = typeof(HierarchicalData);
+            adapter.Mappings = new List<HierarchicalChartDataMapping>() { mapping };
+            
+            var data = HierarchicalData.GetSampleData();
             chart.DataSource = data;
 
             chart.LabelFormatter = new SunburstDataLabelFormatter();
-            
+
             chart.Palette = new ChartsModel.Palette(chart);
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31)));
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xa5, 0xa5, 0xa5)));
             return chart;
+        }
+
+        private static HierarchicalChartFlatDataAdapter SetFlatDataAdapter(ChartsModel.Sunburst chart) {
+            ChartsModel.HierarchicalChartFlatDataAdapter adapter = new HierarchicalChartFlatDataAdapter();
+            chart.DataAdapter = adapter;
+
+            adapter.GroupDataMembers = new string[] { "Meal" };
+            adapter.LabelDataMember = "Product";
+            adapter.ValueDataMember = "Amount";
+            adapter.ColorDataMember = "Color";
+            return adapter;
         }
     }
     public class SunburstData {
@@ -62,5 +84,24 @@ namespace ChartExModelSpike {
         public string GetDataLabelText(LabelPointData pointData) {
             return (string)pointData.Argument;
         }
+    }
+    public class HierarchicalData {
+        public static List<HierarchicalData> GetSampleData() {
+            List<HierarchicalData> data = new List<HierarchicalData>();
+            for (int i = 0; i < 5; i++) {
+                HierarchicalData item = new HierarchicalData() { Label = string.Format("Group {0}", i) };
+                for (int j = 0; j < 3; j++)
+                    item.Children.Add(new HierarchicalData() { Label = string.Format("SubGroup {0}", j), Value = j });
+                data.Add(item);
+            }
+            data.Add(new HierarchicalData() { Label = "Group 5", Value = 5 });
+            data[0].Children[0].Children.Add(new HierarchicalData() { Label = "Item 1", Value = 5 });
+            data[0].Children[0].Children.Add(new HierarchicalData() { Label = "Item 2", Value = 5 });
+            return data;
+        }
+
+        public double Value { get; set; }
+        public string Label { get; set; }
+        public List<HierarchicalData> Children { get; } = new List<HierarchicalData>();
     }
 }
