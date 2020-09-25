@@ -34,10 +34,13 @@ namespace ChartExModelSpike {
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-            //series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
+            series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = FunnelData.GetSampleData();
 
-            series.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4) };
+            //series.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4) };
+            series.Appearance = new ChartsModel.SeriesAppearance();
+            series.Appearance.FillStyle = new ChartsModel.FillStyle() { FillMode = ChartsModel.FillMode.Solid };
+            series.Appearance.Color = new ChartsModel.ColorARGB(0xff, 0xff, 0, 0);
 
             //Data Labels
             series.Label = new ChartsModel.SeriesLabel(series) {
@@ -82,15 +85,16 @@ namespace ChartExModelSpike {
         public FunnelData(string stage, double amount) {
             Stage = stage;
             Amount = amount;
+            PointColor = null;
         }
 
         public string Stage { get; private set; }
         public double Amount { get; private set; }
-        public int PointColor { get; set; }
+        public int? PointColor { get; set; }
 
         public static List<FunnelData> GetSampleData() {
             List<FunnelData> data = new List<FunnelData> {
-                new FunnelData("Prospects", 500) { PointColor = unchecked((int)0xff4472c4) },
+                new FunnelData("Prospects", 500)/* { PointColor = unchecked((int)0xff4472c4) }*/,
                 new FunnelData("Qualified prospects", 425) { PointColor = unchecked((int)0xffed7d31) },
                 new FunnelData("Need analysis", 200) { PointColor = unchecked((int)0xffa5a5a5) },
                 new FunnelData("Price quotes", 150) { PointColor = unchecked((int)0xffffc000) },
