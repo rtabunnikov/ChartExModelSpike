@@ -18,7 +18,8 @@ namespace ChartExModelSpike {
             HierarchicalChartDataMapping mapping = new HierarchicalChartDataMapping();
             mapping.LabelDataMember = "Label";
             mapping.ValueDataMember = "Value";
-            mapping.ChildrenDataMember = "Children";
+            mapping.ColorDataMember = "Color";
+            mapping.ChildrenDataMember= "Children";
             mapping.Type = typeof(HierarchicalData);
             adapter.Mappings = new List<HierarchicalChartDataMapping>() { mapping };
             
@@ -94,14 +95,15 @@ namespace ChartExModelSpike {
                     item.Children.Add(new HierarchicalData() { Label = string.Format("SubGroup {0}", j), Value = j });
                 data.Add(item);
             }
-            data.Add(new HierarchicalData() { Label = "Group 5", Value = 5 });
-            data[0].Children[0].Children.Add(new HierarchicalData() { Label = "Item 1", Value = 5 });
+            data.Add(new HierarchicalData() { Label = "Group 5", Value = 5, Color = unchecked((int)0xff6666aa) });
+            data[0].Children[0].Children.Add(new HierarchicalData() { Label = "Item 1", Value = 5, Color = unchecked((int)0xff33aa33) });
             data[0].Children[0].Children.Add(new HierarchicalData() { Label = "Item 2", Value = 5 });
             return data;
         }
 
         public double Value { get; set; }
         public string Label { get; set; }
+        public int? Color { get; set; }
         public List<HierarchicalData> Children { get; } = new List<HierarchicalData>();
     }
 }
