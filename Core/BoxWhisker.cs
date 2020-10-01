@@ -48,7 +48,7 @@ namespace ChartExModelSpike {
             };
 
             // Series
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 1; i++) {
                 var series = new ChartsModel.BoxPlotSeries() {
                     DisplayName = $"School {i + 1}",
                     LabelsVisibility = i == 0
@@ -64,7 +64,10 @@ namespace ChartExModelSpike {
                 series.DataMembers[ChartsModel.DataMemberType.BoxPlotOutliers] = "Outliers";
                 series.DataSource = BoxWhiskerData.GetSampleData(i);
 
-                series.Appearance = new ChartsModel.SeriesAppearance() { Color = GetSeriesColor(i) };
+                series.Appearance = new ChartsModel.SeriesAppearance() { 
+                    Color = GetSeriesColor(i),
+                    Border = new ChartsModel.Border() { Color = GetSeriesColor(i), Thickness = 1 }
+                };
 
                 if (i == 0) {
                     // DATA LABELS?????
@@ -138,20 +141,20 @@ namespace ChartExModelSpike {
         }
 
         public string Name { get; set; }
-        public double Min { get; set; }
-        public double Quartile1 { get; set; }
-        public double Median { get; set; }
-        public double Quartile3 { get; set; }
-        public double Max { get; set; }
-        public double Mean { get; set; }
+        public double? Min { get; set; }
+        public double? Quartile1 { get; set; }
+        public double? Median { get; set; }
+        public double? Quartile3 { get; set; }
+        public double? Max { get; set; }
+        public double? Mean { get; set; }
         public List<double> Outliers { get; set;  }
 
         public static List<BoxWhiskerData> GetSampleData(int seriesIndex) {
             var data = new List<BoxWhiskerData>();
             if (seriesIndex == 0) {
                 data.Add(new BoxWhiskerData("English", 58, 58.25, 61.5, 63, 63, 59.375) { Outliers = new List<double>() { 46 } });
-                data.Add(new BoxWhiskerData("Physics", 60, 60, 60.5, 61, 61, 60.5));
-                data.Add(new BoxWhiskerData("Math", 60, 60.5, 62, 62.5, 63, 61.5));
+                data.Add(new BoxWhiskerData("Physics", 60, 60, 60.5, 61, 61, 60.5) { Min = null, Max = null, Mean = null, Median = null, Quartile1 = null, Quartile3 = null });
+                data.Add(new BoxWhiskerData("Math", 60, 60, 60, 60, 60, 60));
             }
             else if (seriesIndex == 1) {
                 data.Add(new BoxWhiskerData("English", 50, 52.25, 53.5, 55.5, 56, 53.5));
