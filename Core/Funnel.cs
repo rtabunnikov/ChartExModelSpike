@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Utils;
+using DevExpress.Charts.Model;
 
 namespace ChartExModelSpike {
     public static class Funnel {
@@ -43,13 +44,13 @@ namespace ChartExModelSpike {
             // Series
             var series = new ChartsModel.RangeBarSeries() {
                 DisplayName = "Series 1",
-                LabelsVisibility = true,
+                LabelsVisibility = false,
                 BarWidth = 1.0 / (1.0 + 0.25) // 25% gap
             }; 
 
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
-            series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-            series.DataMembers[ChartsModel.DataMemberType.Value2] = "NegAmount";
+            series.DataMembers[ChartsModel.DataMemberType.Value] = "Min";
+            series.DataMembers[ChartsModel.DataMemberType.Value2] = "Max";
             series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = FunnelData.GetSampleData();
 
@@ -62,7 +63,7 @@ namespace ChartExModelSpike {
             // UNCOMMENT for InvalidCastException under WinForms
             //series.Label = new ChartsModel.SeriesLabel(series) {
             //    EnableAntialiasing = DefaultBoolean.True,
-            //    Position = ChartsModel.SeriesLabelPosition.Center
+            //    Position = ChartsModel.SeriesLabelPosition.InsideBase,
             //};
 
             series.Appearance.LabelAppearance = new ChartsModel.SeriesLabelAppearance() {
@@ -76,6 +77,36 @@ namespace ChartExModelSpike {
                 seriesWithTransparency.Transparency = 0;
 
             chart.Series.Add(series);
+
+            var pointSeries = new PointSeries() {
+                DisplayName = "Series 2",
+                LabelsVisibility = true,
+            };
+            pointSeries.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
+            pointSeries.DataMembers[ChartsModel.DataMemberType.Value] = "Mid";
+            pointSeries.DataSource = FunnelData.GetSampleData();
+            pointSeries.Appearance = new ChartsModel.SeriesAppearance();
+            pointSeries.Appearance.Color = ChartsModel.ColorARGB.Transparent;
+            pointSeries.Appearance.FillStyle = new ChartsModel.FillStyle() { FillMode = ChartsModel.FillMode.Empty };
+            pointSeries.Appearance.Border = new ChartsModel.Border() { Color = ChartsModel.ColorARGB.Transparent };
+            pointSeries.Appearance.MarkerAppearance = new MarkerAppearance() { 
+                BorderVisible = false, 
+                BorderColor = ChartsModel.ColorARGB.Transparent,
+                FillStyle = new FillStyle() { FillMode = ChartsModel.FillMode.Empty }
+            };
+            pointSeries.ShowInLegend = false;
+            pointSeries.Label = new ChartsModel.SeriesLabel(series) {
+                EnableAntialiasing = DefaultBoolean.True,
+                Position = ChartsModel.SeriesLabelPosition.Center,
+                Formatter = new FunnelFormatter()
+            };
+            pointSeries.Appearance.LabelAppearance = new ChartsModel.SeriesLabelAppearance() {
+                LineVisible = false,
+                Border = new ChartsModel.Border() { Color = ChartsModel.ColorARGB.Transparent },
+                TextColor = new ChartsModel.ColorARGB(0xff, 0xff, 0xff, 0xff),
+                BackColor = ChartsModel.ColorARGB.Transparent
+            };
+            chart.Series.Add(pointSeries);
 
             // Legend
             var legend = new ChartsModel.Legend {
@@ -179,7 +210,9 @@ namespace ChartExModelSpike {
 
         public string Stage { get; private set; }
         public double Amount { get; private set; }
-        public double NegAmount => -Amount;
+        public double Max => Amount / 2;
+        public double Min => -Amount / 2;
+        public double Mid => 0;
         public int? PointColor { get; set; }
 
         public static List<FunnelData> GetSampleData() {
@@ -192,6 +225,12 @@ namespace ChartExModelSpike {
                 new FunnelData("Closed sales", 90) { PointColor = unchecked((int)0xff70ad47) }
             };
             return data;
+        }
+    }
+    class FunnelFormatter : ChartsModel.IDataLabelFormatter {
+        public string GetDataLabelText(LabelPointData pointData) {
+            var item = pointData.Context as FunnelData;
+            return item?.Amount.ToString();
         }
     }
 }
