@@ -48,7 +48,7 @@ namespace ChartExModelSpike {
             };
 
             // Series
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < 3; i++) {
                 var series = new ChartsModel.BoxPlotSeries() {
                     DisplayName = $"School {i + 1}",
                     LabelsVisibility = i == 0
@@ -65,7 +65,11 @@ namespace ChartExModelSpike {
                 series.DataSource = BoxWhiskerData.GetSampleData(i);
 
                 series.Appearance = new ChartsModel.SeriesAppearance() { 
-                    Color = GetSeriesColor(i),
+                    //Color = GetSeriesColor(i),
+                    Color = ChartsModel.ColorARGB.Transparent,
+                    FillStyle = new ChartsModel.FillStyle() {
+                        FillMode = ChartsModel.FillMode.Empty,
+                    },
                     Border = new ChartsModel.Border() { Color = GetSeriesColor(i), Thickness = 1 }
                 };
 
@@ -88,16 +92,16 @@ namespace ChartExModelSpike {
 
                 chart.Series.Add(series);
 
-                if (i == 1) {
-                    var meanLine = new ChartsModel.LineSeries();
-                    meanLine.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
-                    meanLine.DataMembers[ChartsModel.DataMemberType.Value] = "Mean";
-                    meanLine.DataSource = BoxWhiskerData.GetSampleData(i);
-                    meanLine.LabelsVisibility = false;
-                    meanLine.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0xcb, 0x5c, 0x20) };
-                    meanLine.Appearance.LineStyle = new ChartsModel.LineStyle() { Thickness = 1, DashStyle = ChartsModel.DashStyle.Solid };
-                    chart.Series.Add(meanLine);
-                }
+                //if (i == 1) {
+                //    var meanLine = new ChartsModel.LineSeries();
+                //    meanLine.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
+                //    meanLine.DataMembers[ChartsModel.DataMemberType.Value] = "Mean";
+                //    meanLine.DataSource = BoxWhiskerData.GetSampleData(i);
+                //    meanLine.LabelsVisibility = false;
+                //    meanLine.Appearance = new ChartsModel.SeriesAppearance() { Color = new ChartsModel.ColorARGB(0xff, 0xcb, 0x5c, 0x20) };
+                //    meanLine.Appearance.LineStyle = new ChartsModel.LineStyle() { Thickness = 1, DashStyle = ChartsModel.DashStyle.Solid };
+                //    chart.Series.Add(meanLine);
+                //}
             }
 
             // Legend
@@ -153,7 +157,7 @@ namespace ChartExModelSpike {
             var data = new List<BoxWhiskerData>();
             if (seriesIndex == 0) {
                 data.Add(new BoxWhiskerData("English", 58, 58.25, 61.5, 63, 63, 59.375) { Outliers = new List<double>() { 46 } });
-                data.Add(new BoxWhiskerData("Physics", 60, 60, 60.5, 61, 61, 60.5) { Min = null, Max = null, Mean = null, Median = null, Quartile1 = null, Quartile3 = null });
+                data.Add(new BoxWhiskerData("Physics", 60, 60, 60.5, 61, 61, 60.5));
                 data.Add(new BoxWhiskerData("Math", 60, 60, 60, 60, 60, 60));
             }
             else if (seriesIndex == 1) {
