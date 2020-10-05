@@ -78,12 +78,13 @@ namespace ChartExModelSpike {
 
             chart.Series.Add(series);
 
-            var pointSeries = new PointSeries() {
+            var pointSeries = new BubbleSeries() {
                 DisplayName = "Series 2",
                 LabelsVisibility = true,
             };
             pointSeries.DataMembers[ChartsModel.DataMemberType.Argument] = "Stage";
             pointSeries.DataMembers[ChartsModel.DataMemberType.Value] = "Mid";
+            pointSeries.DataMembers[ChartsModel.DataMemberType.Weight] = "Mid";
             pointSeries.DataSource = FunnelData.GetSampleData();
             pointSeries.Appearance = new ChartsModel.SeriesAppearance();
             pointSeries.Appearance.Color = ChartsModel.ColorARGB.Transparent;
