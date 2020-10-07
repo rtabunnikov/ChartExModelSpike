@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Utils;
+using DevExpress.Charts.Model;
 
 namespace ChartExModelSpike {
     public static class Waterfall {
@@ -97,6 +94,11 @@ namespace ChartExModelSpike {
                 Lines = new string[] { "4th Quarter" }
             };
             chart.Titles.Add(title);
+
+            series.RisingBarColor = new ColorARGB(0xff, 0x4d, 0xbd, 0x61);
+            series.RisingBarFillStyle = new FillStyle() { FillMode = FillMode.Gradient, Options = new FillOptions() { Color2 = new ColorARGB(0xff, 0x91, 0xe2, 0xbf) } };
+            series.SubtotalBarColor = new ColorARGB(0xff, 0xd9, 0xb2, 0x53);
+            series.SubtotalBarFillStyle = new FillStyle() { FillMode = FillMode.Gradient, Options = new FillOptions() { Color2 = new ColorARGB(0xff, 0x21, 0xa2, 0xcf) } };
 
             ChartAppearanceHelper.SetupAppearance(chart);
 
