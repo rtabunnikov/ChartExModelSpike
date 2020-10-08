@@ -82,6 +82,11 @@ namespace ChartExModelSpike {
                 },
             };
 
+            series.Label = new ChartsModel.SeriesLabel(series) {
+                EnableAntialiasing = DefaultBoolean.True,
+                Position = ChartsModel.SeriesLabelPosition.InsideEnd
+            };
+
 
             if (series is ChartsModel.ISupportTransparencySeries seriesWithTransparency)
                 seriesWithTransparency.Transparency = 0;
