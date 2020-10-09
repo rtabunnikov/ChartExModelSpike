@@ -45,7 +45,7 @@ namespace ChartExModelSpike {
             var sampleData = WaterfallData.GetSampleData();
             series.DataMembers[ChartsModel.DataMemberType.Argument] = "Name";
             series.DataMembers[ChartsModel.DataMemberType.Value] = "Amount";
-            //series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
+            series.DataMembers[ChartsModel.DataMemberType.Color] = "PointColor";
             series.DataSource = sampleData;
 
             series.Label = new ChartsModel.SeriesLabel(series) {
@@ -62,7 +62,7 @@ namespace ChartExModelSpike {
                 },
             };
 
-            series.RisingBarColor = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4);
+            //series.RisingBarColor = new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4);
             series.FallingBarColor = new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31);
             series.SubtotalBarColor = new ChartsModel.ColorARGB(0xff, 0x70, 0xad, 0x47);
             //series.RisingBarColor = ChartsModel.ColorARGB.Empty;
@@ -95,8 +95,10 @@ namespace ChartExModelSpike {
             };
             chart.Titles.Add(title);
 
-            series.RisingBarColor = new ColorARGB(0xff, 0x4d, 0xbd, 0x61);
-            series.RisingBarFillStyle = new FillStyle() { FillMode = FillMode.Gradient, Options = new FillOptions() { Color2 = new ColorARGB(0xff, 0x91, 0xe2, 0xbf) } };
+            //series.RisingBarColor = new ColorARGB(0xff, 0x4d, 0xbd, 0x61);
+            //series.RisingBarFillStyle = new FillStyle() { FillMode = FillMode.Gradient, Options = new FillOptions() { Color2 = new ColorARGB(0xff, 0x91, 0xe2, 0xbf) } };
+            series.RisingBarColor = ColorARGB.Transparent;
+            series.RisingBarFillStyle = new FillStyle() { FillMode = FillMode.Empty};
             series.SubtotalBarColor = new ColorARGB(0xff, 0xd9, 0xb2, 0x53);
             series.SubtotalBarFillStyle = new FillStyle() { FillMode = FillMode.Gradient, Options = new FillOptions() { Color2 = new ColorARGB(0xff, 0x21, 0xa2, 0xcf) } };
 
@@ -114,12 +116,12 @@ namespace ChartExModelSpike {
 
         public string Name { get; private set; }
         public double Amount { get; private set; }
-        public int PointColor => (int)(IsTotal ? 0xff70ad47 : Amount >= 0 ? 0xff4472c4 : 0xffed7d31);
+        public int? PointColor { get; set; }
         public bool IsTotal { get; set; }
 
         public static List<WaterfallData> GetSampleData() {
             List<WaterfallData> data = new List<WaterfallData> {
-                new WaterfallData("Revenue", 23201),
+                new WaterfallData("Revenue", 23201) { PointColor =  unchecked((int)0xff4472c4) },
                 new WaterfallData("Cost of goods", -8273),
                 new WaterfallData("Gross margin", 14928) { IsTotal = true },
                 new WaterfallData("Administrative expense", -1151),
