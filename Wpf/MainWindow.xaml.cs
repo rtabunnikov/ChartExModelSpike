@@ -3,7 +3,7 @@ using System.Windows;
 using ChartsModel = DevExpress.Charts.Model;
 using DevExpress.Xpf.Charts.ModelSupport;
 using ChartExModelSpike;
-using DevExpress.Xpf.TreeMap;
+using DevExpress.Xpf.TreeMap.Native;
 
 namespace ChartExWpf {
     /// <summary>
