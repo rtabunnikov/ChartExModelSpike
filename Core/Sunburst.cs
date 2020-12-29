@@ -32,6 +32,12 @@ namespace ChartExModelSpike {
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0x44, 0x72, 0xc4)));
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xed, 0x7d, 0x31)));
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xa5, 0xa5, 0xa5)));
+
+            //chart.An
+
+            chart.Titles.Add(new ChartTitle() { Lines = new string[] { "MultiLine", "Title" }, Font = new FontModel() { Bold = true, Italic = true, Size = 16 } });
+            chart.Titles.Add(new ChartTitle() { Lines = new string[] { "Second Title" }, Font = new FontModel() { Size = 20 } });
+
             return chart;
         }
 

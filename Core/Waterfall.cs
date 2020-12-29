@@ -36,6 +36,8 @@ namespace ChartExModelSpike {
                 Visible = true
             };
 
+            chart.Titles.Add(new ChartTitle() { Lines = new string[] { "MultiLine", "Title" }, Font = new FontModel() { Bold = true, Italic = true, Size = 16 } });
+
             // Series
             var series = new ChartsModel.WaterfallSeries {
                 DisplayName = "Series1",
