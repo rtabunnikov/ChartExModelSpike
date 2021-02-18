@@ -29,6 +29,7 @@ namespace ChartExModelSpike {
             chart.Palette.Entries.Add(new ChartsModel.PaletteEntry(new ChartsModel.ColorARGB(0xff, 0xa5, 0xa5, 0xa5)));
 
             chart.Titles.Add(new ChartTitle() { Lines = new string[] { "MultiLine", "Title" }, Font = new FontModel() { Bold = true, Italic = true, Size = 16 } });
+            chart.Legend = new Legend() { LegendPosition = LegendPosition.Right };
 
             return chart;
         }
