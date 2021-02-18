@@ -13,7 +13,8 @@ namespace ChartExModelSpike {
         Pareto = 3,
         Sunburst = 4,
         TreeMap = 5,
-        Waterfall = 6
+        Waterfall = 6,
+        Line = 7
     }
 
     public partial class Form1 : Form {
@@ -50,6 +51,7 @@ namespace ChartExModelSpike {
                 case ChartType.Histogram:
                 case ChartType.Pareto:
                 case ChartType.Waterfall:
+                case ChartType.Line:
                     return new XtraChartsModelControllerFactory();
                 case ChartType.TreeMap:
                     return new TreeMapModelControllerFactory();
@@ -105,6 +107,13 @@ namespace ChartExModelSpike {
         private void butSunburst_Click(object sender, EventArgs e) {
             Reset(ChartType.Sunburst);
             modelChart = Sunburst.Create();
+            controller.ChartModel = modelChart;
+            viewPanel.Invalidate();
+        }
+
+        private void butColoredLine_Click(object sender, EventArgs e) {
+            Reset(ChartType.Line);
+            modelChart = Line.Create();
             controller.ChartModel = modelChart;
             viewPanel.Invalidate();
         }

@@ -23,6 +23,7 @@
             <Button x:Name="butPareto" Content="Pareto" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butPareto_Click"/>
             <Button x:Name="butTreemap" Content="Treemap" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butTreemap_Click"/>
             <Button x:Name="butSunburst" Content="Sunburst" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butSunburst_Click"/>
+            <Button x:Name="butColoredLine" Content="ColoredLine" HorizontalAlignment="Left" Margin="10,10,0,10" Width="75" Click="butColoredLine_Click"/>
         </StackPanel>
     </Grid>
 </Window>

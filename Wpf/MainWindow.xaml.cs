@@ -16,7 +16,8 @@ namespace ChartExWpf {
         Pareto = 3,
         Sunburst = 4,
         TreeMap = 5,
-        Waterfall = 6
+        Waterfall = 6,
+        Line = 7
     }
     public partial class MainWindow : Window {
         private ChartsModel.ModelControllerFactoryBase factory;
@@ -41,6 +42,7 @@ namespace ChartExWpf {
                 case ChartType.Histogram:
                 case ChartType.Pareto:
                 case ChartType.Waterfall:
+                case ChartType.Line:
                     return new XpfChartsModelControllerFactory();
                 case ChartType.TreeMap:
                     return new TreeMapModelControllerFactory();
@@ -106,6 +108,13 @@ namespace ChartExWpf {
         private void butSunburst_Click(object sender, RoutedEventArgs e) {
             Reset(ChartType.Sunburst);
             modelChart = Sunburst.Create();
+            controller.ChartModel = modelChart;
+            RenderChart();
+        }
+
+        private void butColoredLine_Click(object sender, RoutedEventArgs e) {
+            Reset(ChartType.Line);
+            modelChart = Line.Create();
             controller.ChartModel = modelChart;
             RenderChart();
         }
